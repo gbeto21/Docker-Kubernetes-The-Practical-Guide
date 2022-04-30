@@ -3,13 +3,15 @@ FROM node
 #Place where the commands will be executed
 WORKDIR /app
 
+COPY package.json /app
+
+RUN npm install
+
 #Host file syste  |  Image/ container file system
 COPY . /app
 
 #Copy al the files to the Working directory (/app)
 # COPY . ./
-
-RUN npm install
 
 EXPOSE 80
 
