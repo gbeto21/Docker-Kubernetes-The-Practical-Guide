@@ -13,6 +13,6 @@ COPY . .
 EXPOSE 80
 
 ##Path inside of the container
-VOLUME ["/app/feedback"]
+##VOLUME ["/app/feedback"]
 
 CMD ["node", "server.js"]
