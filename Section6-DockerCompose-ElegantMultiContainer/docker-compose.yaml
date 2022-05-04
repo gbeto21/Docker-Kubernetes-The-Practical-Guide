@@ -9,10 +9,26 @@ services:
       MONGO_INITDB_ROOT_PASSWORD: secret
     #env_file:
       #-./env/mongo.env
-  #backend:
+  backend:
+    build: ./backend #short version
+    #build: #long version
+      #context: ./backend
+      #dockerfile: Dockerfile #Just in case you call your file different
+      #args:
+    ports:
+      - '3000:80'
+    volumes:
+      - logs:/app/logs
+      - ./backend:/app
+      - /app/node_modules
+    env_file:
+      - ./env/backend.env
+    depends_on:
+      - mongodb
     
   #frontend:
 
-volumes:
+volumes: #Just named volumes
   data:
+  logs:
     
